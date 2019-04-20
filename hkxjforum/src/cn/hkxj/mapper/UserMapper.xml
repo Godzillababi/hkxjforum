@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hkxj.mapper.UserMapper">
+
+	<select id="findStudentByAccount" parameterType="int" resultType="user">
+		SELECT * FROM student WHERE account=#{account}
+	</select>
+	
+	<select id="findUserById" parameterType="int" resultType="user">
+		SELECT * FROM forum_user WHERE id=#{id}
+	</select>
+	
+	<insert id="addUser" parameterType="user">
+		INSERT INTO forum_user(id,username) values(#{id},#{username})
+	</insert>
+	
+	<select id="findUsernameById" parameterType="int" resultType="string">
+		SELECT username FROM forum_user WHERE id=#{id}
+	</select>
+	
+	<update id="updateUsername" parameterType="user">
+		UPDATE forum_user SET username=#{username} WHERE id=#{id}
+	</update>
+	
+</mapper>
